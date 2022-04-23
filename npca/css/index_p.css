@@ -1,0 +1,54 @@
+@charset 'UTF-8';
+@import url('base.css');
+
+
+/* 文字列部分 */
+p {
+	text-align : center ;
+	font-family : 'ＭＳ Ｐゴシック', selif ;
+	font-size : medium ;
+}
+	/* サブメニュー */
+	h2.submenu {
+		clear : left ;
+		text-align : center ;
+		font-size : large ;
+	}
+	p.submenu {
+		margin-top : 10px ;
+	}
+
+/* メイン */
+div#print {
+	width : 600px ;
+	margin : 20px auto ;
+}
+	/* ロゴ */
+	h1 {
+		float : left ;
+		width : 420px ;
+		height : 500px ;
+	}
+	h1 img {
+		visibility : visible;
+		margin : 40px 0 ;
+	}
+	/* メニュー */
+	ul#menu {
+		float : left ;
+		width : 180px ;
+		height : 500px ;
+	}
+	#menu li {
+		float : left ;
+		width : 180px ;
+		height : 50px ;
+		list-style-type : none ;
+	}
+	/* リンクスタイル指定の解除 */
+	#menu a:link, #menu a:visited {
+		border-bottom-style : none ;
+	}
+	strong {
+		font-weight : normal ;
+	}

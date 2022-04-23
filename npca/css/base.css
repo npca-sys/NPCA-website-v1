@@ -1,0 +1,176 @@
+@charset 'UTF-8';
+
+/* すべての余白を否定 */
+body, div, h1, h2, h3, h4, h5, h6,ul, ol, li, dl, dt, dd, p, pre, address, img {
+	margin : 0 ;
+	border-style : none ;
+	padding : 0 ;
+}
+
+/* リンク色指定 */
+a:link, a:focus {
+	text-decoration : none ;
+	border-bottom : 1px dashed #465501 ;
+	color: #465501 ;
+}
+a:visited {
+	text-decoration : none ;
+	border-bottom : 1px dashed #B16833 ;
+	color: #B16833 ;
+}
+a:hover, a:active {
+	text-decoration : none ;
+	border-bottom : 1px solid #be0000 ;
+	color: #be0000 ;
+}
+	a.name {
+		text-decotration : none ;
+		border-style : none ;
+		color : #000 ;
+	}
+
+/* 英語用強調を日本語用に転換(em=u) */
+em {
+	font-style : normal ;
+	text-decoration : underline ;
+}
+	/* ただし、純粋な斜体も利用する余地を残しておきます。 */
+	em.italic {
+		font-style : italic;
+		text-decoration: none ;
+	}
+
+/* 全体 */
+body {
+	background-color : #F5FED0 ;
+	background-image : url('../image/back.png') ;
+	/* フォントサイズ指定 */
+	font-size : medium ;
+	font-size : 90% ;
+	letter-spacing : .15em ;
+	font-family : 'ＭＳ ゴシック', monospace ;
+}
+
+/* 水平線はテキストブラウザ用なので表示しません。 */
+hr {
+	display : none;
+}
+
+h1 {
+	margin : 30px auto 0 ;
+	width : 300px ;
+	height : 50px ;
+}
+	/* 表面のイメージは印刷用なので表示しない */
+	h1 img {
+		visibility : hidden ;
+	}
+h2 {
+	margin : 1.5em auto 0 ;
+	width : 750px ;
+	font-size : large ;
+}
+h3 {
+	margin : 2em auto .5em ;
+	padding-left : 10px ;
+	width : 740px ;
+	font-size : middle ;
+}
+h4 {
+	margin : 0em auto .5em ;
+	padding-left : 10px ;
+	width : 720px ;
+	font-size : middle ;
+}
+
+p, blockquote {
+	margin : 1em auto ;
+	width : 700px ;
+	text-indent : 1.15em ;
+	line-height : 1.4em ;
+}
+	p.noindent {
+		text-indent : 0 ;
+	}
+	p.note {
+		margin : .5em auto ;
+		width : 660px ;
+		text-indent : 0 ;
+		font-size : small ;
+		color : #353E20 ;
+	}
+	p.quote, blockquote {
+		text-indent : 0 ;
+		width : 600px ;
+	}
+	p#modified {
+		text-align : right ;
+		font-size : small ;
+		letter-spacing : 0 ;
+	}
+table {
+	margin : 10px auto ;
+	width : 600px ;
+	line-height : 1.2em ;
+}
+	th {
+		text-indent: 1.2em ;
+		text-align : left ;
+	}
+	
+/* メニュー用 */
+pre {
+	margin : 2em auto 0 ;
+	border-top : 3px double #000000 ;
+	padding : 1em 60px ;
+	width : 650px ;
+	line-height : 1.2em ;
+	font-family : 'ＭＳ ゴシック', monospace ;
+}
+ul, ol {
+	margin : 1em auto ;
+	width : 600px ;
+	line-height : 1.4em ;
+}
+	ul.none, ol.none {
+		list-style-type : none ;
+	}
+
+/* 著作権表記 */
+address {
+	margin : 30px auto ;
+	padding-bottom : 2em ;
+	text-align : center ;
+	line-height : 1.4em ;
+	font-size : small ;
+	letter-spacing : .1em ;
+	font-style : normal ;
+	font-family : 'Times New Roman', selif ;
+}
+
+/* HTML側からの例外付加用設定を行います。 */
+.center {
+	text-align : center ;
+	text-indent : 0 ;
+}
+.right {
+	text-align : right ;
+}
+.small {
+	font-size : small ;
+}
+.bold {
+	font-weight : bold ;
+}
+.normal {
+	font-weight : normal ;
+}
+.red {
+	color : #d00 ;
+}
+.selif {
+	font-family : 'Times New Roman', selif ;
+}
+.spacinglittle {
+	letter-spacing : .1em ;
+}

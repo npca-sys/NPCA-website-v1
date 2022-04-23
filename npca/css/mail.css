@@ -1,0 +1,29 @@
+@charset 'UTF-8';
+@import url('base.css');
+
+
+form#mail {
+	display : block ;
+	margin : 20px auto ;
+	border : 2px solid #EBF6AC ;
+	padding : 30px 40px ;
+	width : 500px ;
+	background-color : #BED66A ;
+	text-align : right ;
+	line-height : 2em ;
+}
+	#mail input, #mail textarea {
+		line-height : 1em ;
+		letter-spacing : 0 ;
+	}
+	input#name, input#address {
+		width : 300px ;
+	}
+	textarea#main {
+		width : 450px ;
+		height : 15em ;
+	}
+	input#submit {
+		margin-right : 20px ;
+	}
+

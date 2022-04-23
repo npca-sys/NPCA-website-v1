@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+@import url('base.css');
+
+
+	p.name {
+		text-indent : 0 ;
+		font-weight : bold ;
+	}
+	p.explain {
+		margin : 0 auto 2em ;
+	}

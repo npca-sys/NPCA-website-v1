@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="author" content="bombee">
+<meta name="description" content="灘校パソコン部のウェブサイトです。">
+<meta name="keywords" content="npca,パソコン,コンピュータ,クラブ,nada,灘,灘校,中学,高校,web,プログラム,プログラミング,program,部活,trlocon,電脳,電脳科学研究部,部誌">
+<meta name="name" content="npca">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+<meta name="title" content="npca's WebPage">
+<meta name="WWWC" content="2009/11/27 ( サイトリニューアル決定！ )">
+<link rev="made" href="mailto:naclubkaityo@gmail.com">
+<link rel="index" href="index.html">
+<link rel="StyleSheet" type="text/css" media="all" href="npca/css/bulletin.css" charset="UTF-8">
+<style type="text/css">
+<!--
+	@media screen, tv {
+		h1 {
+			background-image : url('npca/image/title/bulletin.png');
+		}
+	}
+//-->
+</style>
+<style type="text/css">
+<!--
+code {
+	letter-spacing : .05em ;
+	font-weight : bold ;
+}
+p.quote {
+	text-indent : 0 ;
+}
+//-->
+</style>
+<title>npca - 部誌公開</title>
+</head>
+<body>
+<h1><img alt="部誌公開" src="npca/image/index_p/bulletin.png" height="40" width="300"></h1>
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt; <a href="index.html%3Fbulletin.html">部誌公開</a> - Herbertと過ごすテスト期間
+</pre>
+<!-- 個別内容ここから -->
+
+<h2>Herbertと過ごすテスト期間</h2>
+<h3>変数と再帰</h3>
+<p>まず、変数とは、箱である。その箱の中には、数字や命令を放り込んでおける。&quot;H&quot;では、この変数を関数と組み合わせてのみ使用する。例えば、次の命令を与えると、ロボットはどんな行動をとるだろうか。大文字で記された<code>A</code>が変数である。</p>
+<p class="quote"><code>a(A):AA<br>a(s)</code> &nbsp; &nbsp; &nbsp;(6)</p>
+<p>1行目で、関数<code>a</code>は<code>A</code>という<strong>引数</strong>を取ることが宣言された。この場合、関数<code>a</code>の意味は、</p>
+<p class="quote"><em>変数<code>A</code>を受け取り、中に入っている命令を、2回実行する</em></p>
+<p class="noindent">というものである。おわかりかもしれないが、2行目の意味は、<code>a</code>という関数に直進命令<code>s</code>を与えて呼び出す、というものである。つまり、この命令によって、ロボットは「2ます直進する」ということになる。ちなみに、この際、<code>A</code>には命令しか入れることができない。その理由は、<code>A</code>に適当な数字を入れて、展開してみればよくわかる。その数字は全く意味をなさない。</p>
+<p>この方法を用いれば、例えば「右斜めに3ます移動し、さらに左斜めに3ます移動する」という命令を、</p>
+<p class="quote"><code>a:srsl<br>b:slsr<br>aaabbb</code> &nbsp; &nbsp; &nbsp;(16)</p>
+<p class="noindent">と書く代わりに、</p>
+<p class="quote"><code>a(A):AAA<br>a(srsl)a(slsr)</code> &nbsp; &nbsp; &nbsp;(15)</p>
+<p class="noindent">と書くことができる。これで1文字縮めることができた。</p>
+<p>ちなみに、関数は引数を複数取ることができる。例えば以下のように：</p>
+<p class="quote"><code>a(A,B):AAABBB<br>a(srsl,slsr)</code> &nbsp; &nbsp; &nbsp;(18)</p>
+<p class="noindent">この例では望ましくないが、2つ、あるいは3つの引数をとることで縮められる問題も存在した。</p>
+<p>さて、やっかいなのが再帰である。これはプログラマにとってもなかなか御しがたい概念で、しかし非常に重要な概念の一つである。幸いにして、この&quot;H&quot;は単純な言語であるから、再帰も用途が限られ、さほど難しくないと思われる。では、具体的な例を挙げながら説明してみよう。</p>
+<p>まず、再帰とは、文字どおり「再び帰る」———つまり、<em>関数が「自分自身を呼び出す」こと</em>である。これだけでは何のことかわからないだろうから、再帰の例を一つ挙げる。</p>
+<p class="quote"><code>a(A):srsla(A-1)<br>a(23)</code> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;(23)</p>
+<p class="noindent">ごらんの通り、関数<code>a(A)</code>は、その最後で自分自身<code>a(A-1)</code>を呼び出している。この命令を与えると、ロボットはどう動くだろうか。一つ一つ展開していくと、この命令は次のように働くことがわかる。</p>
+<p class="quote"><code>srsla(22)<br>srslsrsla(21)<br> &nbsp; &nbsp; ……<br>srslsrsl …… srslsrsla(0)</code></p>
+<p>実は、&quot;H&quot;は、関数の引数が0以下になると自動的にその関数の実行をやめるという特性を持つ。関数<code>a</code>はそれぞれ1回ずつ「右斜めに進む」という命令を持っていることを考えると、この命令は</p>
+<p class="quote">「23回右斜めに進む」</p>
+<p class="noindent">という意味であることがわかる。</p>
+<p>おわかりだろうか。この再帰を使うと、実行回数を数字で指定することができるのである。これが、先の疑問の答え———回数が増えたときに、どのように字数を減らすか、である。<em>数字は何桁であろうと1文字として扱われる</em>ため、単純な「斜めにn回進む」という命令は、最大11文字で書けることが決定された。</p>
+<p>それでは、続いてさらに複雑な命令に挑戦してみよう。「右斜めに13ます、さらに左斜めに13ます進む」という命令を最小字数で書くには、どう書けばよいだろうか。</p>
+<p>まず考えられる答えは、</p>
+<p class="quote"><code>a(A):srsla(A-1)<br>b(B):slsrb(B-1)<br>a(13)b(13)</code> &nbsp; &nbsp; &nbsp; &nbsp;(22 <a href="index.html%3Fbulletin=2006044.html#B01">*1</a>)</p>
+<p class="noindent">である。ところが、関数は複数の引数を取ることができる。つまり、これを下のように書き直すことができる、ということである。</p>
+<p class="quote"><code>a(A,B):sAa(A,B-1)<br>a(rsl,13)a(lsr,13)</code> &nbsp; &nbsp; &nbsp; &nbsp;(19 <a href="index.html%3Fbulletin=2006044.html#B02">*2</a>)</p>
+<p>さて、この命令はこれ以上縮めることができないのだろうか。それが、できるのである。</p>
+<p class="note"><a class="name" name="B01">*1</a>: 関数<code>b</code>の誤りを訂正しました。</p>
+<p class="note"><a class="name" name="B02">*2</a>: <code>s</code>をくくり出せるのに気づかず、1文字長い命令を掲載していました。</p>
+<h3 class="hr_over">目次</h3>
+<ul>
+<li><a href="index.html%3Fbulletin=2006041.html">前書き</a></li>
+<li><a href="index.html%3Fbulletin=2006042.html">新言語&quot;H&quot;</a></li>
+<li><a href="index.html%3Fbulletin=2006043.html">関数</a></li>
+<li>変数と再帰</li>
+<li><a href="index.html%3Fbulletin=2006045.html">堀江理論・応用堀江理論</a></li>
+<li><a href="index.html%3Fbulletin=2006046.html">実際の問題解説</a></li>
+</ul>
+
+<p id="author">59回生 Faey</p>
+
+<!-- 個別内容ここまで -->
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt;  <a href="index.html%3Fupdate.html">更新履歴</a> - サイトの歩みなど
+　　　　　　　　　     <a href="index.html%3Fnpca.html">活動理念</a> - 趣旨、目標、近況などなど
+　　　　　　　　　     <a href="index.html%3Fprogram.html">部員作品</a> - 部員が製作した作品の展示
+　　　　　　　　　     <a href="index.html%3Ftech.html">技術解説</a> - 使用した技術の紹介
+　　　　　　　　　    [<a href="index.html%3Fbulletin.html">部誌公開</a>]
+　　　　　　　　　     <a href="index.html%3Fdiary.html">内部事情</a> - 主に管理者の日記
+　　　　　　　　　     <a href="index.html%3Fbbs.html">御意見板</a> - ご意見、ご感想などはこちらへ(現在開設予定なし)
+　　　　　　　　　     <a href="index.html%3Fmail.html">恋文投函</a> - 部にメールを送信
+　　　　　　　　　     <a href="index.html%3Flinks.html">社会之窓</a> - 他サイト様へのリンク集
+　　　　　　　　　     <a href="index.html%3Fmembers.html">部員専用</a> - 部員専用のスペースです
+</pre>
+<address>&copy; Copyright 2006 <a href="http://trlocon.ddo.jp/~npca/">npca</a> &amp; <a href="http://faey.flnet.org/">FeyFay Laboratory</a>. All rights reserved.</address>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--
+_uacct = "UA-4970457-1";
+urchinTracker();
+// -->
+</script>
+</body>
+</html>

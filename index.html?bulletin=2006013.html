@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="author" content="bombee">
+<meta name="description" content="灘校パソコン部のウェブサイトです。">
+<meta name="keywords" content="npca,パソコン,コンピュータ,クラブ,nada,灘,灘校,中学,高校,web,プログラム,プログラミング,program,部活,trlocon,電脳,電脳科学研究部,部誌">
+<meta name="name" content="npca">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+<meta name="title" content="npca's WebPage">
+<meta name="WWWC" content="2009/11/27 ( サイトリニューアル決定！ )">
+<link rev="made" href="mailto:naclubkaityo@gmail.com">
+<link rel="index" href="index.html">
+<link rel="StyleSheet" type="text/css" media="all" href="npca/css/bulletin.css" charset="UTF-8">
+<style type="text/css">
+<!--
+	@media screen, tv {
+		h1 {
+			background-image : url('npca/image/title/bulletin.png');
+		}
+	}
+//-->
+</style>
+<style type="text/css">
+<!--
+table#CODECS {
+	width : 25em ;
+	text-align : center ;
+}
+	#CODECS th {
+		border-bottom : 1px solid #000 ;
+	}
+	#CODECS th.codec, #CODECS td.codec {
+		border-right : 1px solid #000 ;
+	}
+table#fps24, table#fps30 {
+	width : 600px ;
+}
+	td.fps {
+		width : 200px ;
+	}
+//-->
+</style>
+<title>npca - 部誌公開</title>
+</head>
+<body>
+<h1><img alt="部誌公開" src="npca/image/index_p/bulletin.png" height="40" width="300"></h1>
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt; <a href="index.html%3Fbulletin.html">部誌公開</a> - 「録画番組パソコンで！AVI版。」計画再浮上！
+</pre>
+<!-- 個別内容ここから -->
+
+<h2>「録画番組パソコンで！AVI版。」計画再浮上！</h2>
+<p class="attention">外部へのリンクを別ウィンドウで開きたい時は、Shiftキーを押しながらクリックしてください。</p>
+<h3>第三章 フレームレートに関するちょっと良い話</h3>
+<p>次はフレームレートに関するお話。実際に映像を変換して、変換後の映像が変換前よりカクカクしていて「あれっ？」と思ったことはありませんか？それは変換前と変換後でフレームレートが違う時、特に30fpsの映像を24fpsで変換してしまった際に発生する現象です。これを理解するために、まずはフレームレートについて解説していきます。</p>
+<p>フレームレートとは単位時間当たりの画面の更新回数をさす言葉で、
+単位は普通「fps(Frames Per Second)」、つまり1秒間に何度映像を更新するかで表します。
+日本の番組は主に30fps、アニメや映画は24fpsであることが多いです(<a href="index.html%3Fbulletin=2006013.html#B01">*1</a>)。
+24fpsの番組はたいてい4の倍数のフレームと5の倍数のフレームが同じ映像になって放送されてます。
+「多い」と書いたのは、アニメや映画であっても全て24fpsではない、と言うこと。
+最近は特にその傾向が強く、前編30fpsだったり、OPとEDだけ30fps、本編は24fps、という変則的なものもあります。
+この場合、24fpsで変換してしまうと全体または一部が30fpsだったシーンが無理矢理24fpsに間引かれてしまい、
+画面がパンするシーンなどでカクカクしてしまいます。
+これが変換前より変換後の方がカクカクなってしまう主な原因です。
+とはいえ、AVIコンテナでは途中でfpsを変えることは出来ません(<a href="index.html%3Fbulletin=2006013.html#B02">*2</a>)。</p>
+<p class="note"><a class="name" name="B01">*1</a>: 正確にはそれぞれ29.97fps、23.976fps。昔ながらの方法、というかほとんど伝統ですね。この微妙な違いはきちんと変換ソフトが対処してくれるので普通は考えなくてもいいです。そういえばこの微妙な値って白黒テレビの頃かららしいです。古い・・・。</p>
+<p class="note"><a class="name" name="B02">*2</a>: これはAVIの規格自体が古いことが原因で、他のコンテナ(WMV、MKV)ではVFR、つまり可変ビットレートの映像を入れることが出来ます。</p>
+<p>では、どうすればいいのか。勘のいい人は気づいたでしょう。fpsの最小公倍数を取ればいいんです。つまり120fpsで変換、使わないフレームにNULLフレームを入れれば(<a href="index.html%3Fbulletin=2006013.html#B03">*3</a>)、24fpsだけ、30fpsだけで変換した時とサイズをそれほど変えないで映像を保存することが出来ます。実際、120fpsにして増える大きさは25分の番組でせいぜい数MB程度。我慢できない大きさではありません。ただ1秒間にそれだけの数のフレームを読み込むので、Windows98かそれより前のすこし古いパソコンか、XPでもスペックが異常に低いパソコンでは再生がうまくいかないかもしれません。まぁそんなパソコンで映像を変換、視聴しようとする人も少ないと思いますが。</p>
+<p class="note"><a class="name" name="B03">*3</a>: 「NULLNULLだよ、ララちゃん。」「ルルちゃんだって・・・。」「あはははは！！！」ではなく何の情報も入っていない空のフレームの事。</p>
+<p>さらにここで疑問。フレームレートは24fpsと30fpsで最小公倍数をとればいいことはわかりました。
+しかし、先ほど述べた通り、24fpsは4の倍数と5の倍数のフレームを同じにして30fpsとして放送されています。純粋な24fpsの番組ならその同じフレームをすべて統合すればいいですが、同じ方法だと30fpsの統合してはいけない部分まで統合されてしまいます。そこで30fpsと24fpsを判別することが必要になってきます。ここからものすごい暇人でないと出来ない方法、時間がない人がする方法の2つを説明していきます。</p>
+<p class="quote">まず1つ目は、全てのフレームのフレームレート自分の目で判別する方法。とはいえ、数万フレーム全ての確認なんて、さすがに暇人でも目が疲れてしまうのである程度のコツと経験、知識が必要になってきます。例えばアニメでは本編だけ24fpsだったり、本編の中でも画面がパンするシーンや人物や画面の動きが激しいシーンだけ30fpsだったりと、ある程度の法則は見つけ出すことができます(<a href="index.html%3Fbulletin=2006013.html#B04">*4</a>)。最近のアニメはどんどん不規則になってきているのでどこまで通用するかはわかりませんが。そうやって24fpsと30fpsを見分けたら、次にその2種類をそれぞれ別々にエンコード。この際、30fpsの方も24fpsの方もこの時点で120fpsで変換するところがポイント。ここで見かけ120fps、NULLフレームを抜いて数えれば24fpsと30fpsの2つの映像が完成すればもう後は繋げるだけ。ここで2つの映像がそれぞれ120fpsでないと前述のAVIコンテナの限界から繋げられません。とにかく、この方法で作成すれば一番確実に24fps、30fps混合の映像を変換することが出来ます。</p>
+<p class="note"><a class="name" name="B04">*4</a>: 正確には連続する5フレームのうち、2コマにインタレ縞があれば24fps、なければ30fpsというのが
+判別方法の基準になるみたいです。さらに厳格に見れば例外もあるそうですがそんなのは滅多にお目にかかれないので気にする必要はないかも。インタレ縞の説明はするのめんどくさいので適当にネットで検索してください。（オイ）</p>
+<h4 class="quote">24fps</h4>
+<table id="fps24" cellspacing="0" border="1">
+<tr><td colspan="5">1</td><td colspan="5">2</td><td colspan="5">3</td><td colspan="5">4</td>
+<td class="fps">24fps(元)</td>
+</tr>
+<tr>
+<td>1</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>2</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>3</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>4</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td class="fps">120fps(疑似VFR)</td>
+</tr>
+<tr>
+<td colspan="2">1a</td><td colspan="2">1b</td>
+<td colspan="2">2a</td><td colspan="2">2b</td>
+<td colspan="2">2a'</td><td colspan="2">3b</td>
+<td colspan="2">3a</td><td colspan="2">4b</td>
+<td colspan="2">4a</td><td colspan="2">4b'</td>
+<td class="fps">60fps(放送)</td>
+</tr>
+<tr>
+<td colspan="4">1</td><td colspan="4">2</td>
+<td colspan="4">2</td><td colspan="4">3</td>
+<td colspan="4">5</td>
+<td class="fps">30fps(キャプチャ)</td>
+</tr>
+</table>
+<h4 class="quote">30fps</h4>
+<table id="fps30" cellspacing="0" border="1">
+<tr>
+<td colspan="4">1</td><td colspan="4">2</td>
+<td colspan="4">2</td><td colspan="4">3</td>
+<td colspan="4">5</td>
+<td class="fps">30fps(元)</td>
+</tr>
+<tr>
+<td>1</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>2</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>3</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td>4</td><td>*</td><td>*</td><td>*</td><td>*</td>
+<td class="fps">120fps(疑似VFR)</td>
+</tr>
+<tr>
+<td colspan="2">1a</td><td colspan="2">1b</td>
+<td colspan="2">2a</td><td colspan="2">2b</td>
+<td colspan="2">3a</td><td colspan="2">3b</td>
+<td colspan="2">4a</td><td colspan="2">4b</td>
+<td colspan="2">5a</td><td colspan="2">5b</td>
+<td class="fps">60fps(放送)</td>
+</tr>
+<tr>
+<td colspan="4">1</td><td colspan="4">2</td>
+<td colspan="4">2</td><td colspan="4">3</td>
+<td colspan="4">5</td>
+<td class="fps">30fps(キャプチャ)</td>
+</tr>
+</table>
+<p class="quote">2つ目は、変換ソフトのプラグインに判別から変換まで全て任せてしまう方法。これなら一々目を真っ赤にしてフレームレートを確認する必要はありません。ただ、そこは自動、一部間違ったフレームレートで認識してしまう可能性もあります。自分の手間と精度を天秤にかけて、自分にあった方法を選んでください。AviUtlでは「AviUtlプラグイン置き場」さんの「自動フィールドシフト インタレース解除プラグイン」がオススメ。結構高精度で判別してくれます。インターレース解除もやってくれますし。使い方は省きますので、HPを参考にしてください。アドレスは最後に載せてあります。</p>
+<p>とまぁ、こんな感じです。どれもこれもAVIコンテナの古い制約から発生する弊害のせいなわけですが。でもAVI以外に簡単に直接出力できるコンテナも少ないですしね。ここに書いてある事が全て理解できるようになった頃には映像自体に関する知識も深まっているはず。</p>
+<p class="column">最近は異常に所謂萌え系アニメが増えてきましたね。別にそれはそれでいいんですけど如何せんストーリーがダメなものが多くて、なんとかならんもんかと日々嘆いてます。と、そんな話は部誌には似合わないのでもう少し専門的な話。アニメ製作現場のブームになってるのかもしれませんが、24fpsと30fpsの混合アニメが異常に増えてる気がします。それこそ手動での確認はできないくらい。さらには人物24fps、背景30fpsという「変換させねーぞ！」とでも言いたいかの様な物まで。後、16:9のアニメも増えてます。エンコーダの特性か知りませんが心なし4:3のアニメの方が綺麗にエンコードできる気がするので変換しにくいったらありゃしない。ハイビジョン放送を目指した物か、はたまた製作側が楽するためのものか知りませんが、アニメの大統一規格、みたいなものが登場すればこちらとしては楽なんですけどね。120fpsとかも必要なくなるし、一々画面サイズ変更しなくて済むし。まぁ夢見たいな話ですが。</p>
+<h3 class="hr_over">目次</h3>
+<ul>
+<li><a href="index.html%3Fbulletin=2006011.html">前書き</a></li>
+<li><a href="index.html%3Fbulletin=2006012.html">エンコーダに関するちょっと良い話</a></li>
+<li>フレームレートに関するちょっと良い話</li>
+<li><a href="index.html%3Fbulletin=2006014.html">ノイズ除去に関するちょっと良い話</a></li>
+<li><a href="index.html%3Fbulletin=2006015.html">最後に</a></li>
+</ul>
+
+<p id="author">59回生 ノーベル</p>
+
+<!-- 個別内容ここまで -->
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt;  <a href="index.html%3Fupdate.html">更新履歴</a> - サイトの歩みなど
+　　　　　　　　　     <a href="index.html%3Fnpca.html">活動理念</a> - 趣旨、目標、近況などなど
+　　　　　　　　　     <a href="index.html%3Fprogram.html">部員作品</a> - 部員が製作した作品の展示
+　　　　　　　　　     <a href="index.html%3Ftech.html">技術解説</a> - 使用した技術の紹介
+　　　　　　　　　    [<a href="index.html%3Fbulletin.html">部誌公開</a>]
+　　　　　　　　　     <a href="index.html%3Fdiary.html">内部事情</a> - 主に管理者の日記
+　　　　　　　　　     <a href="index.html%3Fbbs.html">御意見板</a> - ご意見、ご感想などはこちらへ(現在開設予定なし)
+　　　　　　　　　     <a href="index.html%3Fmail.html">恋文投函</a> - 部にメールを送信
+　　　　　　　　　     <a href="index.html%3Flinks.html">社会之窓</a> - 他サイト様へのリンク集
+　　　　　　　　　     <a href="index.html%3Fmembers.html">部員専用</a> - 部員専用のスペースです
+</pre>
+<address>&copy; Copyright 2006 <a href="http://trlocon.ddo.jp/~npca/">npca</a> &amp; <a href="http://faey.flnet.org/">FeyFay Laboratory</a>. All rights reserved.</address>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--
+_uacct = "UA-4970457-1";
+urchinTracker();
+// -->
+</script>
+</body>
+</html>

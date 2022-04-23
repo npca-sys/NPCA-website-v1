@@ -1,0 +1,202 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="author" content="bombee">
+<meta name="description" content="灘校パソコン部のウェブサイトです。">
+<meta name="keywords" content="npca,パソコン,コンピュータ,クラブ,nada,灘,灘校,中学,高校,web,プログラム,プログラミング,program,部活,trlocon,電脳,電脳科学研究部,部誌">
+<meta name="name" content="npca">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+<meta name="title" content="npca's WebPage">
+<meta name="WWWC" content="2009/11/27 ( サイトリニューアル決定！ )">
+<link rev="made" href="mailto:naclubkaityo@gmail.com">
+<link rel="index" href="index.html">
+<link rel="StyleSheet" type="text/css" media="all" href="npca/css/bulletin.css" charset="UTF-8">
+<style type="text/css">
+<!--
+	@media screen, tv {
+		h1 {
+			background-image : url('npca/image/title/bulletin.png');
+		}
+	}
+//-->
+</style>
+<title>npca - 部誌公開</title>
+</head>
+<body>
+<h1><img alt="部誌公開" src="npca/image/index_p/bulletin.png" height="40" width="300"></h1>
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt; <a href="index.html%3Fbulletin.html">部誌公開</a> - CUIで始める動画変換
+</pre>
+<!-- 個別内容ここから -->
+
+<h2>CUIで始める動画変換</h2>
+<h3>エンコード方法の解説</h3>
+<p>さて、早速mencoderをダウンロードしてきましょう。本来UNIXのソフトウェアはソースコードだけ置いてあって、勝手に各自ビルドしていってください、といったノリのものが多いのですが、Mac OS Xで動くmencoderのバイナリは有志がビルドしてくれたものがありますから始めのうちはそれを使いましょう。<br>
+<a href="http://ffmpegx.com/download.html">http://ffmpegx.com/download.html</a><br>
+上記のURLはffmpegXというGUIで動く動画変換のソフトですが、mencoderのバイナリが置いてありますのでそれを使いましょう。<br>
+Windows、Linuxのバイナリも探せばあるとは思いますがここでは紹介しません。</p>
+<p>当然ですがCUIで動くツールなのでダフルクリックしても開きません。ターミナルから利用します。ここではターミナルの使い方については解説しません。ここに書くと長くなりすぎるので。必要なら自分で調べてください。ところで、mencoderだけ落としてきて、肝心のx264は要らないのかと思われるかもしれませんが、落としてきたmencoderの中にはx264も含まれているので問題ありません。</p>
+<p>さて、早速変換してみましょう。ホームフォルダ直下にmencoderと変換したいファイル(ここではhoge.mpegとしています)を置いて、アプリケーションフォルダ内にあるターミナルを開いて以下のコマンドを実行すれば変換できます。ターミナルの扱い方に付いて説明しだすと長くなるのでここでは割愛します。別にMacintoshでなくとも同じコマンドで変換できるはずです。</p>
+<p>./mencoder hoge.mpeg -nosound -ovc x264 -x264encopts bitrate=1024:bframes=3:b_adapt:weight_b:b_pyramid:keyint=240:keyint_min=1:scenecut=65:qp_min=10:qp_max=51:qp_step=8:qcomp=0.6:ratetol=4:deblock:deblock=0,0:cqm=jvt:cabac:direct_pred=auto:nofast_pskip:nodct_decimate:nointerlaced:noglobal_header:psnr:ssim:pass=1:threads=2:turbo=1 -passlogfile hoge.264.log -vf pullup,softskip,pp=l5,crop=720:480:0:0,scale=640:480:::3,hqdn3d=4:3:6,harddup -sws 9 -ofps 24000/1001 -of rawvideo -o hoge.264<br>
+./mencoder hoge.mpeg -nosound -ovc x264 -x264encopts bitrate=1024:bframes=3:b_adapt:weight_b:b_pyramid:keyint=240:keyint_min=1:scenecut=65:qp_min=10:qp_max=51:qp_step=8:qcomp=0.6:ratetol=4:deblock:deblock=0,0:cqm=jvt:cabac:direct_pred=auto:nofast_pskip:nodct_decimate:nointerlaced:noglobal_header:psnr:ssim:pass=2:threads=16:me=umh:me_range=32:subq=7:frameref=4:mixed_refs:8x8dct:partitions=all:trellis=2:brdo:bime -passlogfile hoge.264.log -vf pullup,softskip,pp=l5,crop=720:480:0:0,scale=640:480:::3,hqdn3d=4:3:6,harddup -sws 9 -ofps 24000/1001 -of rawvideo -o hoge.264</p>
+<p><a href="http://agehatype0.blog50.fc2.com/">agehaさん</a>の設定です。感謝！
+※アニメ用設定ですので、実写では変えましょう。解説読んでください。</p>
+<p>な、長いですね...。流れ的には、まず高速な設定で変換し、そこでできた映像ファイルは捨ててログを取得、それを使ってもう一度低速だが高画質な設定でエンコードします。いわゆる２パスエンコードですね。<br>
+これからagehaさんの設定に基づいて、オプションを一つずつ解説していきます。
+-nosound	サウンドを出力しない。映像を生データで出力し、音声を別途変換してMP4に詰めるのでここでは音声は変換しません。<br>
+-ovc x264	エンコーダの指定。x264を使います。<br>
+-x264encopts	この後に続く長ったらしいオプションはx264の設定項目です。x264をmencoderを経由せず直接利用した場合は違った書式になるのですが、おおむね対応しているようです。<br>
+-passlogfile ログファイルの場所を指定します。２パスエンコードで使います。<br>
+-vf	ビデオフィルタのオプションをこのあとに指定します。<br>
+-sws	スケーリング(ビデオのリサイズ)の設定。0〜10の間で指定します。数字が大きくなると、輪郭がなめらかにリサイズできますが、その分遅くなります。拡大する場合は結構差が出ますが、縮小・等倍の場合はあまり見た目変わりません。まぁでも、そこまで遅くなるわけでもないので9になっているようです。<br>
+-ofps	出力fpsの指定。ビデオフィルタを経由し、インターレースを解除したので出力24fpsとなります。正確には、23.976ですが、より正確には24000/1001です。ここでは分数で指定できるので24000/1001になっています。<br>
+-of rawvideo	映像を生データで出力します。後で音声とともにMP4に詰め直すため。<br>
+-o hoge.264	出力ファイル名の指定。</p>
+<p>-x264encopts のオプションを解説します。ここを弄ることで画質が変わってきます。一部省略してます。<br>
+bitrate=1024<br>
+ビットレートを指定します。ここでは1024になっていますが、私は768でも十分だと思います。ですが、画質にこだわる場合は1024が良いのでしょう。<br>
+subq=7<br>
+1〜7の間で指定します。subpel精製品質の調整、らしいですが、そんなこと言われても訳分かりません。単純に、品質の度合いを表す数字と受け取って構わないようです。数字をあげると品質は良くなりますが遅くなります。とはいうものの、この値が低いと効かないオプションもあるので、最低でも5以上にした方が良いです。出来れば7。<br>
+frameref=1 frameref=4<br>
+変換時に何枚前のフレームまでたどるか、という指標です。増やせば増やす程画質が良くなり速度が遅くなっていくのですが、5あたりで効果が激減します。この値が多いと結構時間がかかるので、1パス目は1、2パス目で4、としているようです。アニメに効果的。<br>
+keyint=240 keyint_min=1<br>
+GOPの最大値、最小値を指定します。<br>
+GOPとはGroup Of Pictureの略で、動画を圧縮する際にはGOP単位に区切って圧縮します。<br>
+GOPは、Iフレーム、Pフレーム、Bフレームから構成されています。<br>
+Iフレームは、それだけでデコードが可能です。ようするに、jpegやpngの写真のように、それ単体で表示出来るようになっているフレームです。<br>
+Pフレームは、デコードするのに直前のIフレームを必要とします。直前のIフレームとの「差分」だけを記録しているのです。その為、アニメの口パク等、ほとんど絵が変わらない場面では非常に圧縮効率が良いです。<br>
+Bフレームは、更にPフレームの差分をとった物です。デコードするのに直前のI・Pフレームを必要とします。使いすぎると画質が悪くなることもあります。<br>
+よって、実際のデータのならび順としてはこんな感じになる訳です。<br>
+IPPPBBIPPPBIPBBBIPPPIP....<br>
+(Bフレームはデータのならび順とデコード順が違うのですが、ここでは説明を割愛します)<br>
+ここで、IPPPBBまでが１つのGOP、また次のIPPPBがまた一つのGOPです。<br>
+Iフレームをシーンチェンジの時において、そのあと少しずつ画面が変わっていく場面でP/Bフレーム、またシーンチェンジが訪れたらIフレームを挿入、としてやって効率良く圧縮していく訳です。<br>
+GOPの最大値に設定された値になると、シーンチェンジが訪れていなくても強制的にIフレームを挿入します。つまり、画質的にはマイナスです。しかし、最初からではなく任意の場所から再生したいときは、Iフレームからでないと頭出しが出来ませんからあまりGOPが長いと頭出しがしにくくなってしまいます。つまり、keyintの値は下げれば下げる程頭出しがしやすくなり、画質的にマイナス、ということです。設定する値は240フレーム=10秒分で良いんじゃないかなと思います。頭出しなんか知ったことか！画質を追求する！という方はもの凄く大きくしてやれば望みうる最善画質になります。お勧めしませんが。<br>
+GOPの最小値は、この値よりも小さな値でシーンチェンジが訪れたとしても新しいGOPにしません。つまり、画質的にはマイナスです。(Pフレームを挿入する訳ではなく、IDRフレーム等が絡んでくるのですが、ややこしくなるので割愛します。)ですが、実写では一瞬だけ映像を表示して次の瞬間には全く違う映像を表示する、なんてことはあまりないため、最小値を設定しておいた方がより効率よくエンコードできます。keyint_min=30くらいでしょうか。まぁ、バイオハザード アポカリプスの終盤とかフラッシュバック的に連続して映像が表示されることもあるので、そこんとこどうかな〜とはおもいますが。アニメでは一秒未満でシーンチェンジすることも珍しくないので、keyint_min=0もしくは1です。<br>
+scenecut=65<br>
+シーンチェンジを判定してIフレームを挿入するのですが、どれくらい映像が変わったらIフレームを挿入するか、という指標です。アニメではシーンチェンジが多いので高めに。特にアニメのOPでは更に多くなりますのでこの値よりも更にもう少し高くしても良いでしょう。一方、実写では低めに。scenecut=40(デフォルト)くらい。落語など、ほとんど場面転換がない特殊な場合ではさらに低くします。<br>
+bframe=3<br>
+連続するBフレームの最大数。例えばbframe=3だと、IPPBBBとなるのが最大でIPBBBBとはなりません。bframe=0にするとBフレームを使いません。画質を求めるならBフレームは使うべきです。<br>
+b_adapt <br>
+Bフレームの品質に影響するようです。とりあえず使っときましょう。当然bframe=0の場合は意味ありません。<br>
+weight_b<br>
+前述したようにBフレームは使いすぎると画質が悪くなります。このオプションをつけると、Bフレームに適さないフレームを発見しPフレームにします。bframe=1ならオフ、bframe=2以上ならオンで。<br>
+b_pyramid <br>
+BフレームはPフレームの差分をとったものですが、このオプションを使うと更にBフレームの差分をとります。その分圧縮効率はよくなります。bframe=2以上でないと意味ありません。<br>
+deblock<br>
+デブロックフィルタ。これは必ず使うべきです。x264のデブロックは大抵の場合、画質がよくなるのに対し速度はあまり低下しません。アニメに効果的。<br>
+deblock=0,0<br>
+デブロック強度の指定。-6〜6の間で指定します。大抵の場合、0,0でベストな画質になりますので、素材に忠実にしたい、と思っていても下げるのはお勧めしません。あげるのは、オリジナルの段階で既にブロックノイズがある場合です。deblock=3,3程度でしょう。<br>
+cabac<br>
+若干遅くなりますが、ビットレートが10%〜15%節約できるので切らない方がいいです。画質には影響しません。<br>
+nofast_pskip<br>
+Pフレームにおける速い段階でのスキップ検出。通常は画質低下等のペナルティ無しで速度が向上するのです...が、切ることでx264特有の「闇階調でばたばた動くブロックノイズ」を抑えることが出来るので、ここでは切っているようです。実際に自分で試してみて決めることをお勧めします。<br>
+nodct_decimate<br>
+使うと若干ディテイルを除去するので、余ったビットレートを他に回せます。ここでは切られていますが、低ビットレートで変換する時やアニメでは使った方がいいかもしれません。ある程度ビットレートを見積もって素材に忠実にしたい場合はオフで。<br>
+pass=1 pass=2<br>
+パスの指定。1が１パス、2が２パス、という意味ではありません。1が最初のパス、2が最後のパス、3がそれ以外のパスです。ですから、たとえば5パスでエンコードしたい場合は13332と変換していくわけです。とはいうものの、５パスもやるともの凄く時間がかかりますし、x264のマルチパスはあまり質がよろしくないようなので３パス程度にするくらいなら２パスにしておいた方が良いです。短編動画ではマルチパスが効果的です。短編故に時間もあまりかからないことですし。<br>
+threads=2 threads=16<br>
+複数CPUで効率的に変換する為にスレッドを分割。最近、CoreDuoなど、マルチコアのCPUが登場してきましたが(もっともそれより前からマルチコアのCPUはあったのですが)マルチコアのCPUで動画変換を行うと、(２コアなら)２コアのうち１コアしか変換作業をせず、もう片方のCPUが宙ぶらりんな状態になります。それだと非常に勿体ないので、ここで指定された数値だけ作業を分担。複数のCPUに作業させます。分担させると圧縮効率に若干悪影響があるのでシングルコアのCPUを使っているならここのはthreads=1にしましょう。agehaさんのサイトでは、デュアルコアの場合で1パス目はthreads=2、2パス目はthreads=16とするのがもっとも良いという結論に達しています。最近はクアッドコア(４コア)やオクトコア(８コア)のワークステーション(もはやパソコンとは呼ばない)も登場してきました。きっとこれに動画変換をやらせたら気持ちが悪いくらい速くなるんでしょうねぇ...。<br>
+turbo=1<br>
+ターボモード。１パスで有効。あまり画質に影響しない１パスのオプションを切って、エンコード速度を速くします。0〜2で指定します。1で良いでしょう。0よりは1の方が、2はちょっとオプション切りすぎな気がします。<br>
+nointerlaced<br>
+映像をインターレースされている物として扱います。mencoderでビデオフィルタでインターレースが解除されてから圧縮するので、当然オフ。<br>
+noglobal_header<br>
+ヘッダ情報を書き込む。PSPなど一部のプレイヤーで必要になります。正直どっちでもいいです。<br>
+psnr ssim<br>
+それぞれ素材に対する忠実度を測る指標です。指定すると変換終了時にPSNR値、SSIM値を表示します。<br>
+me=umh<br>
+動き補償アルゴリズムの選択。次の中から指定します。<br>
+dia ダイヤモンド。四角形サーチ。<br>
+hex ヘキサゴン。六角形サーチ。<br>
+umh マルチヘキサゴン。不等複数六角形サーチ。<br>
+esa エクゾースティッド。徹底サーチ。<br>
+esaは実用に堪えない程遅いですので使い物になりません。２パス目でumhを使うのがいいでしょう。<br>
+me_range=32<br>
+me=umh、me=esaで動きを探索する半径を指定します。これもあまり大きくしすぎると遅くなります。重いと思うならme_range=24くらいに下げてもいいかもしれません。<br>
+mixed_refs<br>
+複数のフレームを参照することで動き補償の精度が向上します。オンにしておきましょう。<br>
+partitions=all<br>
+動き補償をする際、フレーム全体が同一方向に動くことは少なくてあちらこちらに散らばった動き方をします。そこで、マクロブロックという区画に仕切るのですが、その大きさを指定します。<br>
+p16x16,b16x16,i16x16……常に適用。<br>
+p16x8,p8x16,p8x8……p8x8<br>
+p8x4,p4x8,p4x4……p4x4<br>
+b16x8,b8x16,b8x8……b8x8<br>
+i8x8……i8x8<br>
+i4x4……i4x4<br>
+たとえば、p16x16,b16x16,i16x16,i8x8,i4x4の５つを使いたい場合はpartirions=i8x8,i4x4という風に指定します。allを指定すると全て使用。noneを指定するとp16x16,b16x16,i16x16以外は全て使いません。これもagehaさんのサイトで、何も考えずallを指定してよさそう、という結論になっています。<br>
+8x8dct<br>
+i8x8を使うならオンにしておきましょう。</p>
+<p>-vf オプションを解説します。インターレースの解除やノイズの除去に影響します。<br>
+pp系は基本的にインターレースをほぼ除去できます。<br>
+pp=lb<br>
+リニアブレンド。これを使うと完全にインターレースを除去できますが、全体がややボケて、動く物が二重化します。前後のフレームを半分ずつ混ぜ合わせた、ゴーストのようなフレームができます。<br>
+pp=l5<br>
+pp=lbの弱くした物。pp=lbと比べて副作用が少ないですが、場合によってはインターレースが残ることも。<br>
+pp=md<br>
+中央値補間。pp系の中では単体で使う分でもっとも良い。デメリットはアニメなどの輪郭にジャギが出ること。<br>
+filmdint=fast=0/comb_thres=48<br>
+pp=mdよりもクリアで、輪郭ジャギも出ません。デメリットは細かい部分が少しつぶれ、解除もれが出ること。アニメの口パクなどで良く残ります。filmdint内でもオプションがあり、いろいろ挙動が変更できるのですが、ここでは解説しません。Macintoshでは2005年夏頃から正常動作しなくなったようです。yadif=0を使いましょう。<br>
+pullup,softskip<br>
+逆テレシネフィルタ。正確にはインタレ解除ではありません。インターレースがかかる前の状態に復元することを念頭においているので、アニメでは極めて美しく解除できます。欠点は、インターレースをかけた上から字幕ロゴ等が合成してあるとその部分が荒れること、始めからインターレースのかかった状態で撮影されているような番組では当然正しく解除できません。pullup直後のsoftskipは必ず指定しましょう。<br>
+yadif=0<br>
+解除性能はfilmdintとほぼ同等。ただ、解除もれを起こさない点でfilmdintに勝ります。<br>
+mcdeint=0<br>
+新しく登場してきたインタレ解除フィルタです。インタレ解除フィルタのくせに動き補償まで備えています。yadifよりジャギが少なく、設定次第で万能ナイフにもなりそうですがまだ出てきたばかりで未実装の機能等があります。あと、猛烈に遅いです。<br>
+hqdn3d=4:3:6<br>
+デノイズフィルタ。前から順に、空間軸輝度、空間軸彩度、時間軸のデノイズ強度です。hqdn3d=4:3:6がもっとも良い、という結論になっています。DVDなど、ノイズが入っていない素材では削ってもいいでしょう。<br>
+crop=720:480:0:0<br>
+クロップ。映像の上下左右を裁ち落とします。上下の黒幕を裁ち落とす際に使います。最初のふたつで残す映像の幅と高さを、あとのふたつで切抜きの開始位置を指定します。注意したいのは、一般的なMPEG2動画は720×480になっています。再生時に、640×480に縮小しているのです。ですから、そこを留意した上で切りぬきましょう。<br>
+scale=640:480:::3<br>
+スケーリング。上のcropで裁ち落とした映像を指定したサイズにリサイズします。これを省くと、リサイズを行わない、つまりcropしていない場合は720×480になって横に延びた映像になるので必ず指定しましょう。最後の3は、リサイズする際に輪郭の滑らかさなどに影響します。アニメなら3、実写なら4が適切。<br>
+harddup<br>
+x264で変換する際は必ず指定しましょう。でないと音ズレします。必ずvfオプションの最後に指定すること。</p>
+<p>変換が終了すると、拡張子が264のファイルが出来あがります。これはこのままでは再生できません。MP4に映像と音声を入れる必要があります。それにはMP4Boxを使用します。<br>
+MP4Boxのバイナリは以下のサイトで取得できます。今度はWindowsやLinuxのバイナリも入っています。<br>
+<a href="http://www.tkn.tu-berlin.de/research/evalvid/">http://www.tkn.tu-berlin.de/research/evalvid/</a></p>
+<p>MP4Boxをホームフォルダ直下において以下のコマンドを実行します。<br>
+./MP4Box -fps 23.976025 -add hoge.264 -add 音声ファイル.mp4 -new hoge.mp4<br>
+音声ファイルは、AACのものをつかいます。MPEG2ファイルから音声を抽出するには<a href="http://www.squared5.com/">MPEG Streamclip</a>を使います。抽出したあとは普通にiTunes等で変換すれば良いです。動画ファイルから音声を抽出するには、拡張子はm4aになると思いますが、mp4に変更しておきましょう。-fpsは出力fpsです。小数で指定しないと音ズレします。</p>
+<p>コマンドを実行し終わると、hoge.mp4ファイルを生産します。これで完成です。お疲れさまでした。他のファイルは必要ないので削除しても構いません。<br>
+なお、QuickTimeでは再生できない場合があります。<a href="http://www.videolan.org/vlc/">VLC</a>や<a href="http://www.mplayerhq.hu/design7/news.html">MPlayer</a>といった再生ソフトを使いましょう。ちなみに、mencoderはmplayerについてくるエンコーダです。mplayerをビルド(コンパイル)するとmencoderもついてきます。本来CUIで動くものですが、GUI版も配布されているので心配せずに。</p>
+<p>QuickTimeで再生したい場合には、avc1encoderというプラグインを組み込んでやれば良いのですが、Bフレームを使っているとまた厄介な問題が出てきます。agehaさんも苦労しているようです。暫定的な対応策などがagehaさんのホームページに記載されていますので、それを参照してください。</p>
+<h3 class="hr_over">目次</h3>
+<ul>
+<li><a href="index.html%3Fbulletin=2007011.html">前書き</a></li>
+<li><a href="index.html%3Fbulletin=2007012.html">エンコードの前に</a></li>
+<li>エンコード方法の解説</li>
+<li><a href="index.html%3Fbulletin=2007014.html">後書き</a></li>
+</ul>
+
+<p id="author">61回生 謎の魔人X</p>
+
+<!-- 個別内容ここまで -->
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt;  <a href="index.html%3Fupdate.html">更新履歴</a> - サイトの歩みなど
+　　　　　　　　　     <a href="index.html%3Fnpca.html">活動理念</a> - 趣旨、目標、近況などなど
+　　　　　　　　　     <a href="index.html%3Fprogram.html">部員作品</a> - 部員が製作した作品の展示
+　　　　　　　　　     <a href="index.html%3Ftech.html">技術解説</a> - 使用した技術の紹介
+　　　　　　　　　    [<a href="index.html%3Fbulletin.html">部誌公開</a>]
+　　　　　　　　　     <a href="index.html%3Fdiary.html">内部事情</a> - 主に管理者の日記
+　　　　　　　　　     <a href="index.html%3Fbbs.html">御意見板</a> - ご意見、ご感想などはこちらへ(現在開設予定なし)
+　　　　　　　　　     <a href="index.html%3Fmail.html">恋文投函</a> - 部にメールを送信
+　　　　　　　　　     <a href="index.html%3Flinks.html">社会之窓</a> - 他サイト様へのリンク集
+　　　　　　　　　     <a href="index.html%3Fmembers.html">部員専用</a> - 部員専用のスペースです
+</pre>
+<address>&copy; Copyright 2006 <a href="http://trlocon.ddo.jp/~npca/">npca</a> &amp; <a href="http://faey.flnet.org/">FeyFay Laboratory</a>. All rights reserved.</address>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--
+_uacct = "UA-4970457-1";
+urchinTracker();
+// -->
+</script>
+</body>
+</html>

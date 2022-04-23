@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="author" content="bombee">
+<meta name="description" content="灘校パソコン部のウェブサイトです。">
+<meta name="keywords" content="npca,パソコン,コンピュータ,クラブ,nada,灘,灘校,中学,高校,web,プログラム,プログラミング,program,部活,trlocon,電脳,電脳科学研究部,部誌">
+<meta name="name" content="npca">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+<meta name="title" content="npca's WebPage">
+<meta name="WWWC" content="2009/11/27 ( サイトリニューアル決定！ )">
+<link rev="made" href="mailto:naclubkaityo@gmail.com">
+<link rel="index" href="index.html">
+<link rel="StyleSheet" type="text/css" media="all" href="npca/css/bulletin.css" charset="UTF-8">
+<style type="text/css">
+<!--
+	@media screen, tv {
+		h1 {
+			background-image : url('npca/image/title/bulletin.png');
+		}
+	}
+//-->
+</style>
+<style type="text/css">
+<!--
+table#CODECS {
+	width : 25em ;
+	text-align : center ;
+}
+	#CODECS th {
+		border-bottom : 1px solid #000 ;
+	}
+	#CODECS th.codec, #CODECS td.codec {
+		border-right : 1px solid #000 ;
+	}
+table#fps24, table#fps30 {
+	width : 600px ;
+}
+	td.fps {
+		width : 200px ;
+	}
+//-->
+</style>
+<title>npca - 部誌公開</title>
+</head>
+<body>
+<h1><img alt="部誌公開" src="npca/image/index_p/bulletin.png" height="40" width="300"></h1>
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt; <a href="index.html%3Fbulletin.html">部誌公開</a> - 「録画番組パソコンで！AVI版。」計画再浮上！
+</pre>
+<!-- 個別内容ここから -->
+
+<h2>「録画番組パソコンで！AVI版。」計画再浮上！</h2>
+<p class="attention">外部へのリンクを別ウィンドウで開きたい時は、Shiftキーを押しながらクリックしてください。</p>
+<h3>第二章 エンコーダに関するちょっと良い話</h3>
+<p>では早速、エンコーダについて書いていきますね。上の5つの条件を多く満たすエンコーダは</p>
+<ul>
+<li>DivX</li>
+<li>Xvid</li>
+<li>WMV</li>
+<li>x264</li>
+</ul>
+<p class="noindent">の4つ(<a href="index.html%3Fbulletin=2006012.html#B01">*1</a>)。「DivX」と「Xvid」については前回軽く説明しましたが、今回はこの二つも含めて
+より詳しく比較解説していきたいと思います(<a href="index.html%3Fbulletin=2006012.html#B02">*2</a>)。後、各コーデックの説明中にノイズの種類とかが書いてあるんですがわからなければ<a href="index.html%3Fbulletin=2006014.html">第4章</a>に載ってますのでそっちを参照してください。</p>
+<p class="note"><a class="name" name="B01">*1</a>: x264はh264の技術を使ったエンコーダ。h264と実質的には変わりません。h264の技術を使ったエンコーダは有料のものが多いんですがこれはタダ。</p>
+<p class="note"><a class="name" name="B02">*2</a>: 世の中にはエンコードの解説の載ったページがゴマンとありますがそれらに流されないためにもその解説を極力無視し、僕が自分自身で映像を変換してその結果に基づき、僕の主観に沿って評価を出しています。</p>
+<table id="CODECS">
+<tr><th class="codec">名称</th><th>タダ</th><th>軽い</th><th>綺麗</th><th>速い</th><th>人気</th></tr>
+<tr><td class="codec">DivX</td><td>△</td><td>◎</td><td>△</td><td>○</td><td>◎</td></tr>
+<tr><td class="codec">Xvid</td><td>○</td><td>◎</td><td>○</td><td>○</td><td>○</td></tr>
+<tr><td class="codec">WMV</td><td>○</td><td>△</td><td>○</td><td>△</td><td>○</td></tr>
+<tr><td class="codec">x264</td><td>○</td><td>×</td><td>◎</td><td>×</td><td>△</td></tr>
+</table>
+<h4 class="quote">DivX</h4>
+<p class="quote">
+言わずとも知れた超有名エンコーダにして一番の老舗。DVDの映画をCD一枚に収める、というコンセプトは世界中で広く受け入れられ、現在のエンコーダの流れを作ったといっても過言ではない。らしい。ただ初めはマイクロソフトの開発したMS-MPEG4のパクりだったとか。最新バージョンは2006/4/20現在でver6.2。ただver5.2.1あたりが安定動作版として人気。ちなみに無料版でも変換自体はできますが、有料版も存在します。有料版の方が圧縮率が高く、設定の自由度も高いらしいです。試したことないので実際はわかりませんが。その無料版を変換してみた感じでは世間一般で言われているほどは悪くない感じ。ただ、色の再現度やノイズは他の3つに比べればやはり少し劣る気が。後、実写向きとされてますが特に他の3つとの相違点は見つかりません。DivXが元々実写映画のエンコードに使われるために生じた噂話かも。</p>
+<h4 class="quote">Xvid</h4>
+<p class="quote">DivXがまだ無料だった頃、開発元でDivXを商用製品路線へ乗せるかどうかで意見が分かれ、それに反発した一部の開発者がオープンソース、フリーをコンセプトにして開発したのがXvid。MPEG-4特許に抵触(<a href="index.html%3Fbulletin=2006012.html#B03">*3</a>)しているため実は問題があったりするんですが、個人的な使用には問題ありません。最新バージョンは2006/4/20現在でver1.10。デュアルコア対応のver1.20もβ版として存在します。僕も現在使っているのがこのコーデック。モスキートノイズが乗りやすい傾向にありますが色の再現度はNo.1。手元の環境では画質に定評のあるh264よりも色の再現に関しては上回っています。また、モスキートノイズが乗る、といっても映像は常に動き続け、それにあわせてモスキートノイズも動き続けるのでスクリーンショットを取らない限り、日本中の腐女子を虜にするテニヌプレーヤーぐらい動体視力が良くないと気になりません。なので、綺麗なスクリーンショットを取りたい人はあまりオススメできないかもしれません。また、これはXvidだけに言えることではないですが、やはり暗部でのブロックノイズが目立ちます。後、様々なサイトでQuantization typeなどのチェック項目の説明があり、それらにチェックを入れると変換に時間がかかる代わりに画質が良くなる〜的な印象を与えられますがUse VHQ for bframes too以外にチェックを入れると低速でパンするシーンで色にじみが発生したりします。おかげでどれだけ苦労したことか・・・。1ヶ月以上研究でつぶれましたね。その研究の結果、ほとんど全てにチェックを入れないのが最適、とわかった時の悲しみといったら・・・。Encoding typeはSingle passでのQualityエンコードがオススメ。番組にもよりますが、CMを抜いた25分の番組がquantizer2〜3で300MB前後になる感じ。再生時の軽さや変換の速さでは定評のあるDivXとほとんど同じ。個人的には今一番オススメできるエンコーダです。</p>
+<p class="note"><a class="name" name="B03">*3</a>: 2つの権利が同一の対象に対して重なって成立しており、どちらを実施してもお互いの権利内容を実施する状態のこと。</p>
+<h4 class="quote">WMV</h4>
+<p class="quote">マイクロソフトが開発したエンコーダで、デコーダの観点から言えば世界で一番普及しています。というのも、Windowsに標準でついてくるWindows Media Playerに標準でデコーダが搭載されてるんですね。自分の作った映像を友達に渡して見てもらいたい、なおかつ相手がパソコンに詳しくないのであれば
+一番オススメなのはこのWMVになります。特徴として、映画サイズの映像だけでなくネット配信用の低ビットレートの映像からHDTVの大きなサイズの映像にも対応していることがあげられます。最新バージョンは2006/4/20現在で9。アニメの変換で人気があります。が、それほど良いエンコーダかどうかは疑問。WMVは色の再現度はともかく、画面がヌメっとして甘ったるくなることが多々あります。内部の詳しい動作についてはわかりませんが、どうやらモスキートノイズやブロックノイズを低ビットレートでも出さないようにする代わりに細部を潰しているみたいですね。それが見る側になんだかヌメっとした映像、という印象を与えるみたいです。ただ、モスキートノイズやブロックノイズが出るくらいならそれでいい！と言う人はWMVの方が良いのかもしれません。後、変換が遅くて重い。とにかく遅くて重い。今年、一度に大量の映像をWMVでエンコードする機会があったんですが遅くて重くてイライラする。DivX、Xvidの2倍かそれ以上時間がかかる上にCPUは常に90%以上を単体で確保。とりあえずWMVを使おうと思ったらハイスペックのパソコンが必要かも。</p>
+<h4 class="quote">x264</h4>
+<p class="quote">最近頭角を現してきた、h264の技術を利用したフリーのコーデック。h264はMPEG-2の二倍以上の圧縮効率を実現するといわれていて、ワンセグ放送も実はh264。離散コサイン変換(DCT)やフレーム間予測、量子化、エントロピー符号化、算術符号化など僕みたいに少しかじっただけでは全く意味がわからない程、すごいアルゴリズムを使っているらしいです。その超最先端技術をフリーで試せるのがx264、というわけ。ただ、先ほど説明した大量のなんだかすごそうなアルゴリズムを全て効率よく使い分けることで初めてMPEG-2の二倍以上の圧縮効率になったり、高画質になったりします。そこはフリーのコーデック。過剰な期待は禁物、と言うことを覚えておいた方がいいかも。最新バージョンは2006/4/20現在でRev.503。ただバージョンアップが異常に早く、二日に一度にバージョンアップしたりするくらいせわしない。画質はXvidがver1.03だった頃はこのx264がダントツだったんですけど、Xvidの欄にも書きましたがXvidのバージョンアップで色の再現度では抜かれた感じ。それでも細部の再現度、特にモスキートノイズが少なさでは飛びぬけていて、スクリーンショットを取るには最適。また、他のエンコーダが16×16画素ブロック単位で変換しているのに対し、h264は8×8画素ブロック単位で変換しているのでブロックノイズも目立ちにくい。が、ブロックノイズも完全には消えるわけではないので気になるときには気になります。加えて再生がとても重い。5秒早送りするのに3〜4秒もかかったらそりゃイライラしますよ。メモリが1GB以上ならそれもだいぶ解消されるらしいですが。ここまで紹介したコーデックの中で将来生き残るのは確実にこのx264ですが、まだ使うには時期尚早、というのがx264に関する大まかな感想。</p>
+<p>というわけで各コーデックの特徴の説明終了。まとめると今、実用性があるのはXvid、将来性があるのはx264、といった感じ。まぁここに載せた画質に関する評価は僕の主観にかなり依存してるので「ノーベル？誰だよそれ？そんな奴信用できるかっ！」って人は一度全てのエンコーダで自分自身で変換して自分の目で確かめて比べることが大切です。人によって好みは違うので選ぶエンコーダも変わってくるはず。それに色々なエンコーダを使えばそれぞれのエンコーダの良さがわかるだけでなくエンコーダそれ自身についても設定を通じてわかるようになってきます。まさに習うより慣れろ、なのでがんばって試してみてくださいね。</p>
+<p class="column">AVI変換時に結構問題になる（っていうかうちで問題になってる）のがAVI変換時のパソコンのファンの音。いくら夜中の涼しい時間に変換をするとはいえ、CPUを使用率50〜100%で数時間動かし続けるので否が応でもCPUやHDDの温度は跳ね上がり、それを冷やそうとファンがうるさくなります。これが結構馬鹿にならないもので、うちは親の寝る部屋とパソコンの置いてある部屋が繋がっているので結構親はファンの音が気になってるみたいです。これを解消するにはCPUの温度を下げるしかない。で、パソコンの給気口の周りに冷却材を置いてみたり、こまめにパソコンの排気口についた埃を取ったりしてみたんですが、効果は全く見られませんでした。となると、大本のCPUの使用率を減らすしかファン音を小さくする方法はない。でも変換ソフトからはCPU使用率はいじれないし、どうしたものか・・・。と思ってCPU使用率をいじれるソフトを探して見つけたのが「BattleEncoderSirase」。これを使えば思いのままにCPU使用率をいじれます。うちの家では-66％、つまり17％までCPU使用率を下げないとファン音は下がりませんでしたが。ちなみに下げれば下げるほど変換にかかる時間は長くなることに注意。当たり前ですが。それでもファンの騒音に悩まされてる人にはオススメ。アドレスは最後に載せておいたので興味のある人は参照してみてください。</p>
+<h3 class="hr_over">目次</h3>
+<ul>
+<li><a href="index.html%3Fbulletin=2006011.html">前書き</a></li>
+<li>エンコーダに関するちょっと良い話</li>
+<li><a href="index.html%3Fbulletin=2006013.html">フレームレートに関するちょっと良い話</a></li>
+<li><a href="index.html%3Fbulletin=2006014.html">ノイズ除去に関するちょっと良い話</a></li>
+<li><a href="index.html%3Fbulletin=2006015.html">最後に</a></li>
+</ul>
+
+<p id="author">59回生 ノーベル</p>
+
+<!-- 個別内容ここまで -->
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt;  <a href="index.html%3Fupdate.html">更新履歴</a> - サイトの歩みなど
+　　　　　　　　　     <a href="index.html%3Fnpca.html">活動理念</a> - 趣旨、目標、近況などなど
+　　　　　　　　　     <a href="index.html%3Fprogram.html">部員作品</a> - 部員が製作した作品の展示
+　　　　　　　　　     <a href="index.html%3Ftech.html">技術解説</a> - 使用した技術の紹介
+　　　　　　　　　    [<a href="index.html%3Fbulletin.html">部誌公開</a>]
+　　　　　　　　　     <a href="index.html%3Fdiary.html">内部事情</a> - 主に管理者の日記
+　　　　　　　　　     <a href="index.html%3Fbbs.html">御意見板</a> - ご意見、ご感想などはこちらへ(現在開設予定なし)
+　　　　　　　　　     <a href="index.html%3Fmail.html">恋文投函</a> - 部にメールを送信
+　　　　　　　　　     <a href="index.html%3Flinks.html">社会之窓</a> - 他サイト様へのリンク集
+　　　　　　　　　     <a href="index.html%3Fmembers.html">部員専用</a> - 部員専用のスペースです
+</pre>
+<address>&copy; Copyright 2006 <a href="http://trlocon.ddo.jp/~npca/">npca</a> &amp; <a href="http://faey.flnet.org/">FeyFay Laboratory</a>. All rights reserved.</address>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--
+_uacct = "UA-4970457-1";
+urchinTracker();
+// -->
+</script>
+</body>
+</html>

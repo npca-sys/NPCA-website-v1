@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="author" content="bombee">
+<meta name="description" content="灘校パソコン部のウェブサイトです。">
+<meta name="keywords" content="npca,パソコン,コンピュータ,クラブ,nada,灘,灘校,中学,高校,web,プログラム,プログラミング,program,部活,trlocon,電脳,電脳科学研究部,部誌">
+<meta name="name" content="npca">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+<meta name="title" content="npca's WebPage">
+<meta name="WWWC" content="2009/11/27 ( サイトリニューアル決定！ )">
+<link rev="made" href="mailto:naclubkaityo@gmail.com">
+<link rel="index" href="index.html">
+<link rel="StyleSheet" type="text/css" media="all" href="npca/css/bulletin.css" charset="UTF-8">
+<style type="text/css">
+<!--
+	@media screen, tv {
+		h1 {
+			background-image : url('npca/image/title/bulletin.png');
+		}
+	}
+//-->
+</style>
+<style type="text/css">
+<!--
+code {
+	letter-spacing : .05em ;
+	font-weight : bold ;
+}
+p.quote {
+	text-indent : 0 ;
+}
+//-->
+</style>
+<title>npca - 部誌公開</title>
+</head>
+<body>
+<h1><img alt="部誌公開" src="npca/image/index_p/bulletin.png" height="40" width="300"></h1>
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt; <a href="index.html%3Fbulletin.html">部誌公開</a> - Herbertと過ごすテスト期間
+</pre>
+<!-- 個別内容ここから -->
+
+<h2>Herbertと過ごすテスト期間</h2>
+<h3>関数</h3>
+<p><code>a</code>という名前をつけた関数を考えてみよう。&quot;H&quot;では、関数は小文字で書く。この関数は、<code>srsl</code>、つまり、斜めに移動する、という機能を備えているとしてほしい。つまり、<em><code>a</code>と書くことで、<code>srsl</code>と書いたと同じ</em>ことである、とするのである。すると、先の16文字は次のように表せる：</p>
+<p class="quote"><code>a:srsl<br>aaaa</code> &nbsp; &nbsp; &nbsp;(9)</p>
+<p>ごらんのように、一行目が関数の定義、即ち、<code>a</code>は、<code>srsl</code>と同じだという宣言である。この新たに定義した命令<code>a</code>を4回書くことで、<code>srsl</code>を4回書いたことと同じと見なすのである。&quot;H&quot;では、<em><code>:,()+-</code>の6つの記号を文字と数えない</em>から、この命令は9文字に縮んだことになる。ちなみに、かけ算と割り算は使用できない。</p>
+<p>このようにして、アルゴリズムの文字数を縮めることができる。例えば、さらに進む数を増やして「右斜めに9ます移動する」とする。</p>
+<p class="quote"><code>a:srsl<br>aaaaaaaaa</code> &nbsp; &nbsp; &nbsp;(14)</p>
+<p class="noindent">しかし、<code>a</code>を9回繰り返すのは冗長であるから、新たに関数<code>b</code>を定義して、</p>
+<p class="quote"><code>a:srsl<br>b:aaa<br>bbb</code> &nbsp; &nbsp; &nbsp;(12)</p>
+<p class="noindent">と書けば、全く同じ命令をより少ない文字数で記すことができる。これらが同じ内容であることは、<code>b</code>を<code>aaa</code>で、<code>a</code>を<code>srsl</code>で置き換えることによって簡単に示される。</p>
+<p>しかし、この方法には限界がある。例えば、「右斜めに23ます移動する」という命令を書け、と言われた場合はどうすればよいだろうか。同じ方法に則って、</p>
+<p class="quote"><code>a:srsl<br>b:aaaaa<br>aaabbbb</code> &nbsp; &nbsp; &nbsp;(18)</p>
+<p class="noindent">と書くことは可能である。しかし、このままだと進む数やその約数に文字数が大きく左右される。それを防ぐ新たな概念が<strong>変数</strong>、そして<strong>再帰</strong>という構造である。</p>
+<h3 class="hr_over">目次</h3>
+<ul>
+<li><a href="index.html%3Fbulletin=2006041.html">前書き</a></li>
+<li><a href="index.html%3Fbulletin=2006042.html">新言語&quot;H&quot;</a></li>
+<li>関数</li>
+<li><a href="index.html%3Fbulletin=2006044.html">変数と再帰</a></li>
+<li><a href="index.html%3Fbulletin=2006045.html">堀江理論・応用堀江理論</a></li>
+<li><a href="index.html%3Fbulletin=2006046.html">実際の問題解説</a></li>
+</ul>
+
+<p id="author">59回生 Faey</p>
+
+<!-- 個別内容ここまで -->
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt;  <a href="index.html%3Fupdate.html">更新履歴</a> - サイトの歩みなど
+　　　　　　　　　     <a href="index.html%3Fnpca.html">活動理念</a> - 趣旨、目標、近況などなど
+　　　　　　　　　     <a href="index.html%3Fprogram.html">部員作品</a> - 部員が製作した作品の展示
+　　　　　　　　　     <a href="index.html%3Ftech.html">技術解説</a> - 使用した技術の紹介
+　　　　　　　　　    [<a href="index.html%3Fbulletin.html">部誌公開</a>]
+　　　　　　　　　     <a href="index.html%3Fdiary.html">内部事情</a> - 主に管理者の日記
+　　　　　　　　　     <a href="index.html%3Fbbs.html">御意見板</a> - ご意見、ご感想などはこちらへ(現在開設予定なし)
+　　　　　　　　　     <a href="index.html%3Fmail.html">恋文投函</a> - 部にメールを送信
+　　　　　　　　　     <a href="index.html%3Flinks.html">社会之窓</a> - 他サイト様へのリンク集
+　　　　　　　　　     <a href="index.html%3Fmembers.html">部員専用</a> - 部員専用のスペースです
+</pre>
+<address>&copy; Copyright 2006 <a href="http://trlocon.ddo.jp/~npca/">npca</a> &amp; <a href="http://faey.flnet.org/">FeyFay Laboratory</a>. All rights reserved.</address>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--
+_uacct = "UA-4970457-1";
+urchinTracker();
+// -->
+</script>
+</body>
+</html>

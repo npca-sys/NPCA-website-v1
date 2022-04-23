@@ -1,0 +1,99 @@
+@charset 'UTF-8';
+@import url("base.css");
+
+
+h2 {
+	margin : 10px auto ;
+	text-align : center ;
+}
+h3.hr_over {
+	border-top : 1px dashed #000 ;
+	padding-top : 10px ;
+}
+h4 {
+	margin : 20px auto 0 ;
+}
+h4.quote {
+	width : 630px ;
+}
+h5 {
+	margin : 10px auto ;
+	width : 670px ;
+	font-size : medium ;
+	font-size : 90% ;
+	letter-spacing : .1em ;
+}
+p {
+	line-height : 1.6em ;
+}
+	p.quote {
+		text-indent : 1.15em ;
+	}
+	p.column {
+		border : 2px solid #BED66A ;
+		padding : 15px ;
+		width : 600px ;
+		text-indent : 1.1em ;
+		font-size : small ;
+		letter-spacing : 0.1em ;
+	}
+	p.note {
+		margin : .2em auto ;
+		border-bottom : 1px dashed #BED66A ;
+		letter-spacing : 0.1em ;
+	}
+		p.note a.name {
+			text-decoration : underline ;
+		}
+	p.attention {
+		text-align : center ;
+		text-indent : 0 ;
+		font-size : small ;
+		letter-spacing : .08em ;
+		color : #f00 ;
+	}
+
+dfn {
+	font-style : normal ;
+	text-decoration : underline ;
+}
+
+ul.quote {
+	width : 550px ;
+}
+
+table {
+	margin : .5em auto ;
+}
+table.wide {
+	width : 650px ;
+}
+table.xsmall {
+	font-size : x-small ;
+}
+
+p#author {
+	margin-top : 2em ;
+	width : 600px ;
+	text-align : right ;
+}
+
+/* 詳細キャンセル */
+h2.top, h3.top {
+	text-align : left ;
+}
+h2.top {
+	width : 530px ;	
+}
+h3.top {
+	margin: 0 auto 10px ;
+	width : 500px ;
+}
+.top span.pdf {
+	font-size : small ;
+}
+ul.top, ol.top {
+	margin : .5em auto 2em ;
+	width : 450px ;
+	line-height : 1.4em ;
+}

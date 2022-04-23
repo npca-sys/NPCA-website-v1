@@ -1,0 +1,50 @@
+@charset 'UTF-8';
+@import url("base.css");
+
+h2, h3, p {
+	text-align : center ;
+}
+h2 {
+	margin : 10px auto ;
+}
+p {
+	margin : .5em auto ;
+}
+	p#if {
+		margin-top : 3em ;
+	}
+/* strongのカラー化 */
+strong {
+	font-weight : normal ;
+	color : #f00 ;
+}
+
+/* トップのリスト */
+div.group {
+	margin : 20px auto ;
+	padding : 20px 20px 10px ;
+	width : 610px ;
+	border : 2px dotted #000 ;
+}
+	/* 詳細キャンセル */
+	.group h2, .group h3, .group p {
+		text-align : left ;
+	}
+	.group h2 {
+		margin : 0 0 10px ;
+		width : 610px ;
+	}
+	.group h3 {
+		margin : 0 25px ;
+		padding-top : 15px ;
+		border-top : 1px dotted #000 ;
+		width : 560px ;
+	}
+		h3 span.date {
+			font-size : small ;
+			font-weight : normal ;
+		}
+	.group p {
+		margin : 10px auto 15px 45px ;
+		width : 550px ;
+	}

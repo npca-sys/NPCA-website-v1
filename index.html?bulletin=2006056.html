@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<meta http-equiv="imagetoolbar" content="no">
+<meta name="author" content="bombee">
+<meta name="description" content="灘校パソコン部のウェブサイトです。">
+<meta name="keywords" content="npca,パソコン,コンピュータ,クラブ,nada,灘,灘校,中学,高校,web,プログラム,プログラミング,program,部活,trlocon,電脳,電脳科学研究部,部誌">
+<meta name="name" content="npca">
+<meta name="ROBOTS" content="INDEX,FOLLOW">
+<meta name="title" content="npca's WebPage">
+<meta name="WWWC" content="2009/11/27 ( サイトリニューアル決定！ )">
+<link rev="made" href="mailto:naclubkaityo@gmail.com">
+<link rel="index" href="index.html">
+<link rel="StyleSheet" type="text/css" media="all" href="npca/css/bulletin.css" charset="UTF-8">
+<style type="text/css">
+<!--
+	@media screen, tv {
+		h1 {
+			background-image : url('npca/image/title/bulletin.png');
+		}
+	}
+//-->
+</style>
+<style type="text/css">
+<!--
+p.column {
+		padding : 5px 15px ;
+}
+//-->
+</style>
+<title>npca - 部誌公開</title>
+</head>
+<body>
+<h1><img alt="部誌公開" src="npca/image/index_p/bulletin.png" height="40" width="300"></h1>
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt; <a href="index.html%3Fbulletin.html">部誌公開</a> - 人工無能のつくりかた
+</pre>
+<!-- 個別内容ここから -->
+
+<h2>人工無能のつくりかた -文章生成の初歩の初歩-</h2>
+<h3>今後の指針のようなもの</h3>
+<p>さて。この章の内容は基本的に未確認情報です。実際に実装したわけではありません。ただ、これを読んだ方で、もしも人工無能を作ってみたいという人がいれば、参考になるかもしれないと思ったので書くことにしました。</p>
+<p class="column">#あと自分用メモとして。</p>
+<p>いや、別に暗殺された天才科学者の手記とかそういうたいそうなものではないのですが。</p>
+<h4>1.前後のつながりをもっと大事に</h4>
+<p>「双方向」とはいっても、結局文章を伸ばす時には一方向のつながりしか考えていないのですが(A B→CのときのB←Cを考えていないということ)、ここで逆方向のつながりも考えるとより自然な文章が生成できるかもしれません。</p>
+<h4>2.そもそもマルコフから離れる</h4>
+<p>今のアルゴリズムは、文章の形を自然にすることにこだわりすぎて、意味をほとんど考えていないので、もしかすると新しい方針が必要かもしれない。例えば、品詞だけでマルコフ連鎖を作って、それを仮想的な「文法」として、そこに単語を当てはめていく。同時に単語と単語のつながりをうまく定義して単語のネットワークのようなものを形成して、とかも考えているのですが(というか、仮想文法を作るところまではすぐできるかもしれない)、単語同士の関連性をどのように表すかがさっぱりわからないので挫折しています(ぉ</p>
+<h3>おわりに</h3>
+<p>長かった・・・、いや、実際にはそれほど長くなかったのですが、なにぶん無理やり書いたのでどうも長く感じたわけで。それでも後半はだいぶ勢いに乗れたかな、という気はします。</p>
+<p>さて。こんなつまらない悪文を最後まで読んでくれたあなたのことです。きっとあふれんばかりの才能の持ち主なのでしょう。いや、きっとそうです。僕がそうだといえばそうなのです。</p>
+<p>灘校パソコン部は、そんな才能あふれる奇特なあなたをお待ちしています。もしあなたが灘校生なら、学年は問いません。旧校舎四階、地学教室横の薄汚い小部屋まで見学に来てください。それと、あまり乗り気でないあなた。長い人生、そのくらいの寄り道も悪くないものです。ここらで、パソコン部を道連れにするのもあるいは楽しいかもしれませんよ。</p>
+<p class="column">#要は見学に来てくれ、ということなんだけど(ぉ</p>
+<p>ともかく、もう夜も遅い(AM04:09)ので、ここらでペンを置くことにします。提出期日を五日もオーバーしているのに快く編集を引き受けてくれたFaeyさん、ありがとうございました。</p>
+<p>それでは、来年こそは「暗号入門」が書ける事を祈って。</p>
+<h3 class="hr_over">目次</h3>
+<ul>
+<li><a href="index.html%3Fbulletin=2006051.html">前書き</a></li>
+<li><a href="index.html%3Fbulletin=2006052.html">人工無能を知らないあなたへ</a></li>
+<li><a href="index.html%3Fbulletin=2006053.html">ごくごく初歩の文章生成</a></li>
+<li><a href="index.html%3Fbulletin=2006054.html">マルコフ連鎖で手軽な作文</a></li>
+<li><a href="index.html%3Fbulletin=2006055.html">手軽な改良計画</a></li>
+<li>今後の指針のようなもの</li>
+</ul>
+
+<!-- 個別内容ここまで -->
+<hr>
+<pre>
+現在位置：　<a href="index.html">ホーム</a> -&gt;  <a href="index.html%3Fupdate.html">更新履歴</a> - サイトの歩みなど
+　　　　　　　　　     <a href="index.html%3Fnpca.html">活動理念</a> - 趣旨、目標、近況などなど
+　　　　　　　　　     <a href="index.html%3Fprogram.html">部員作品</a> - 部員が製作した作品の展示
+　　　　　　　　　     <a href="index.html%3Ftech.html">技術解説</a> - 使用した技術の紹介
+　　　　　　　　　    [<a href="index.html%3Fbulletin.html">部誌公開</a>]
+　　　　　　　　　     <a href="index.html%3Fdiary.html">内部事情</a> - 主に管理者の日記
+　　　　　　　　　     <a href="index.html%3Fbbs.html">御意見板</a> - ご意見、ご感想などはこちらへ(現在開設予定なし)
+　　　　　　　　　     <a href="index.html%3Fmail.html">恋文投函</a> - 部にメールを送信
+　　　　　　　　　     <a href="index.html%3Flinks.html">社会之窓</a> - 他サイト様へのリンク集
+　　　　　　　　　     <a href="index.html%3Fmembers.html">部員専用</a> - 部員専用のスペースです
+</pre>
+<address>&copy; Copyright 2006 <a href="http://trlocon.ddo.jp/~npca/">npca</a> &amp; <a href="http://faey.flnet.org/">FeyFay Laboratory</a>. All rights reserved.</address>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+<!--
+_uacct = "UA-4970457-1";
+urchinTracker();
+// -->
+</script>
+</body>
+</html>

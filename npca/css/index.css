@@ -1,0 +1,118 @@
+@charset 'UTF-8';
+@import url('base.css');
+
+
+body {
+	margin-top : 40px ;
+}
+
+/* h1要素は、体裁を整えるためには必要がないので存在を抹消します */
+h1, h1 img {
+	/* display : none ;は、Operaの印刷時に画像が読み込まれなくなるのを防ぐために使用を避けます */
+	width : 0 ;
+	height : 0 ;
+	visibility : hidden ;
+}
+
+/* サブメニュー */
+h2.submenu {
+	margin : 30px auto 0 ;
+	width : auto ;
+	text-align : center ;
+	font-size : middle ;
+}
+
+/* 文字列部分 */
+p {
+	width : auto ;
+	text-align : center ;
+	text-indent : 0 ;
+	font-family : 'ＭＳ Ｐゴシック', selif ;
+}
+	p.submenu {
+		margin : 5px auto ;
+	}
+
+/* 著作権表記 */
+address {
+	margin-top : 45px ;
+}
+
+/* メインメニュー部分 */
+ul#menu {
+	margin : 0 auto ;
+	padding-left : 450px ;
+	width : 300px ;
+	height : 500px ;
+	background-image : url('../image/index/logo.png');
+	background-repeat : no-repeat ;
+}
+	/* リスト外枠は外形を保持します */
+	#menu li {
+		float : left ;	/* Internet Explorerで位置を正確に表示するための措置 */
+		height :50px ;
+		width : 300px ;
+	}
+	/* ここで位置を調整します */
+	#menu a {
+		display : block ;
+		height : 50px ;
+		width : 180px ;
+		border-bottom-style : none ;	/* 一般リンクの指定の巻き添えを回避します */
+	}
+	/* 表面の印刷用画像を非表示にします */
+	#menu img {
+		visibility : hidden ;
+	}
+		/* 個々の背景と位置設定 */
+		#m01 a {
+			background-image : url('../image/index/update.png');
+			margin-left : 0 ;
+		}
+		#m02 a {
+			background-image : url('../image/index/npca.png');
+			margin-left : 50px ;
+		}
+		#m03 a {
+			background-image : url('../image/index/program.png');
+			margin-left : 80px ;
+		}
+		#m04 a {
+			background-image : url('../image/index/tech.png');
+			margin-left : 90px ;
+		}
+		#m05 a {
+			background-image : url('../image/index/bulletin.png');
+			margin-left : 100px ;
+		}
+		#m06 a {
+			background-image : url('../image/index/diary.png');
+			margin-left : 100px ;
+		}
+		#m07 a {
+			background-image : url('../image/index/bbs.png');
+			margin-left : 90px ;
+		}
+		#m08 a {
+			background-image : url('../image/index/mail.png');
+			margin-left : 80px ;
+		}
+		#m09 a {
+			background-image : url('../image/index/links.png');
+			margin-left : 50px ;
+		}
+		#m10 a {
+			background-image : url('../image/index/members.png');
+			margin-left : 0 ;
+		}
+
+	/* ロールオーバー */
+	#menu a:link, #menu a:active, #menu a:focus, #menu a:visited {
+		background-position : 0px 0px ;
+	}
+	#menu a:hover {
+		background-position : 0px 50px ;
+	}
+	strong {
+		font-weight : normal ;
+	}
